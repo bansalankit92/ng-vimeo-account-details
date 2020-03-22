@@ -7,6 +7,7 @@ import { AccountDetailsComponent } from './components/account-details/account-de
 import { AccountDetailsService } from './services/account-details.service';
 import { HttpService } from './services/http-service';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxDatatableModule
   ],
   providers: [HttpService, AccountDetailsService],
   bootstrap: [AppComponent]

@@ -27,7 +27,20 @@
       </table>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     
+<ngx-datatable
+class=" dark"
+[rows]="ads"
+[columns]="columns"
+[columnMode]="ColumnMode.force"
+headerHeight="50"
+footerHeight="50"
+rowHeight="auto"
+[reorderable]="reorderable"
+[limit]="10"
+>
+</ngx-datatable>
 </ng-container>
 <ng-template #loadingTemplate>
     <p>loading...</p>
 </ng-template>
+
