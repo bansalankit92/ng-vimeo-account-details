@@ -1,0 +1,33 @@
+<ng-container *ngIf="($accountDetails | async) as ads; else loadingTemplate">
+    
+<table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Account No</th>
+            <th scope="col">Date</th>
+            <th scope="col">Transaction Details</th>
+            <th scope="col">Value Date</th>
+            <th scope="col">Withdrawal AMT</th>
+            <th scope="col">Deposit AMT</th>
+            <th scope="col">Balance AMT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ad of ads | paginate: { itemsPerPage: 10, currentPage: p }; let i=index; ">
+                <td scope="col">{{ad["Account No"]}}</td>
+                <td scope="col">{{ad.Date}}</td>
+                <td scope="col">{{ad["Transaction Details"]}}</td>
+                <td scope="col">{{ad["Value Date"]}}</td>
+                <td scope="col">{{ad["Withdrawal AMT"]}}</td>
+                <td scope="col">{{ad["Deposit AMT"]}}</td>
+                <td scope="col">{{ad["Balance AMT"]}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+</ng-container>
+<ng-template #loadingTemplate>
+    <p>loading...</p>
+</ng-template>
